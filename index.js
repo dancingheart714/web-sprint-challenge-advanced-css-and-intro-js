@@ -217,7 +217,7 @@ console.log(artists[2].bio);
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 (no function needed) 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
-artists[8].name ="Vincent Van Gogh"
+artists[8].name ="Vincent Van Gogh";
 
 console.log(artists);
 
@@ -230,8 +230,8 @@ console.log(artists);
  
  Example, if getArtistByIndex is invoked with the artists array and the number 0, it will return `the artist at index 0 is Amedeo Modigliani` */
 
-function getArtistByIndex(array, index){
-  return `the artist at index ${array[index]} is ${array[index].name}`
+function getArtistByIndex(artists, index){
+  return `the artist at index ${index} is ${artists[index].name}`;
 }  
 console.log(getArtistByIndex(artists,0));
 
@@ -251,7 +251,8 @@ function get20s(array){
     if (array[i].years >= '1900' && array[i].years <= '2000'){
       twentiethCentury.push(array[i].name);
     }
-  }return twentiethCentury;
+  }
+  return twentiethCentury;
 }
 console.log(get20s(artists));
 
@@ -266,10 +267,10 @@ console.log(get20s(artists));
  For example, if removeArtist is invoked with the artists array and the number 0, it will remove Amedeo Modigliani from our dataset and return the number 19. */
 
 function removeArtist(array, index){
-   array.splice(index, 1);
+   array.splice(index,1);
    return array.length;
 }
-   console.log(removeArtist[artists,0]);
+   console.log(removeArtist(artists,0));
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 Use addArtist to do the following: 
@@ -287,12 +288,11 @@ Use addArtist to do the following:
 
 Example: addArtist(artists) should return the artists array with the above object added to the end of the array. */
 
-function addArtist(array, id, name, years, genre, nationality, bio) {
-  array.push({
-    id, name, years, genre, nationality, bio});
+function addArtist(array, object) {
+  array.push(object)
     return array;
   }
-  console.log(addArtist(20, "Leah", 1963, "Web Design", "American", "lorem ipsum"));
+ 
 
   
 
@@ -305,14 +305,14 @@ For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte
 
 function lotsOfArt(array){
   let paintingNumber =[];
-  for (let i=0; i < array.length; i++){
-    if(artists[i].paintings >= 100){
-      paintingNumber.push(artists[i].name);
+  for (let i = 0; i < array.length; i++){
+    if(array[i].paintings >= 100){
+      paintingNumber.push(array[i].name);
     }
   }
   return paintingNumber;
 }
-console.log(lotsOfArt(artists));
+
 
 
 
@@ -376,3 +376,4 @@ export default{
   addArtist,
   lotsOfArt
 }
+
